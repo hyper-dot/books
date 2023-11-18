@@ -8,3 +8,5 @@ export const customerSchema = z.object({
   amount_receivable: z.number().optional(),
   customer_id: z.number(),
 });
+
+export type customerSchemaType = z.infer<typeof customerSchema>;

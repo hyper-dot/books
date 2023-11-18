@@ -17,6 +17,17 @@ CREATE TABLE "PurchaseTransaction" (
 );
 
 -- CreateTable
+CREATE TABLE "SalesTransaction" (
+    "transaction_item_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "qty" INTEGER NOT NULL,
+    "unit_price" INTEGER NOT NULL,
+    "item_id" INTEGER NOT NULL,
+    "sales_id" INTEGER NOT NULL,
+    CONSTRAINT "SalesTransaction_item_id_fkey" FOREIGN KEY ("item_id") REFERENCES "Item" ("item_id") ON DELETE CASCADE ON UPDATE CASCADE,
+    CONSTRAINT "SalesTransaction_sales_id_fkey" FOREIGN KEY ("sales_id") REFERENCES "Sale" ("sales_id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- CreateTable
 CREATE TABLE "Purchase" (
     "purchase_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
     "purchase_date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -27,6 +38,19 @@ CREATE TABLE "Purchase" (
     "total_cost" REAL NOT NULL,
     "purchase_type" TEXT NOT NULL,
     CONSTRAINT "Purchase_supplier_id_fkey" FOREIGN KEY ("supplier_id") REFERENCES "Supplier" ("supplier_id") ON DELETE CASCADE ON UPDATE CASCADE
+);
+
+-- CreateTable
+CREATE TABLE "Sale" (
+    "sales_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
+    "sales_date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "customer_id" INTEGER NOT NULL,
+    "total_amount" REAL NOT NULL,
+    "discount" REAL NOT NULL,
+    "partial_payment" REAL,
+    "total_revenue" REAL NOT NULL,
+    "sales_type" TEXT NOT NULL,
+    CONSTRAINT "Sale_customer_id_fkey" FOREIGN KEY ("customer_id") REFERENCES "Customer" ("customer_id") ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- CreateTable
@@ -47,18 +71,6 @@ CREATE TABLE "Customer" (
     "amount_receivable" REAL NOT NULL,
     "address" TEXT NOT NULL,
     "vat_no" TEXT NOT NULL
-);
-
--- CreateTable
-CREATE TABLE "Sale" (
-    "sales_id" INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,
-    "sales_date" DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
-    "customer_id" INTEGER NOT NULL,
-    "total_amount" REAL NOT NULL,
-    "discount" REAL NOT NULL,
-    "total_revenue" REAL NOT NULL,
-    "sales_type" TEXT NOT NULL,
-    CONSTRAINT "Sale_customer_id_fkey" FOREIGN KEY ("customer_id") REFERENCES "Customer" ("customer_id") ON DELETE RESTRICT ON UPDATE CASCADE
 );
 
 -- CreateTable

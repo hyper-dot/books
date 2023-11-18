@@ -1,9 +1,8 @@
 import React from "react";
-import { PrismaClient } from "@prisma/client";
 import PurchaseForm from "@/components/purchase/PurchaseForm";
+import { prisma } from "@/lib/prisma";
 
 const page = async () => {
-  const prisma = new PrismaClient();
   const suppliers = await prisma.supplier.findMany();
   const products = await prisma.item.findMany();
   await prisma.$disconnect();

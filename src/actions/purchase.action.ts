@@ -132,7 +132,7 @@ const createPurchaseTransaction = async (
 };
 
 // Finds item by id
-const findItemByID = async (table: string, id: number) => {
+export const findItemByID = async (table: string, id: number) => {
   try {
     // @ts-expect-error
     const item = await prisma[table].findUnique({
@@ -150,7 +150,7 @@ const findItemByID = async (table: string, id: number) => {
 };
 
 //add cash transaction
-const addCashTransaction = async (
+export const addCashTransaction = async (
   amount: number,
   type: string,
   date: string,

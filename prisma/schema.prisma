@@ -16,6 +16,7 @@ model Item {
   item_name String
   stock     Int                  @default(0)
   purchases PurchaseTransaction[]
+  sales     SalesTransaction[]  
 }
 
 model PurchaseTransaction {
@@ -26,6 +27,17 @@ model PurchaseTransaction {
   purchase_id         Int   
   item                Item     @relation(fields: [item_id], references: [item_id], onDelete: Cascade, onUpdate: Cascade)
   purchase            Purchase @relation(fields: [purchase_id], references: [purchase_id], onDelete: Cascade, onUpdate: Cascade)
+}
+
+
+model SalesTransaction {
+  transaction_item_id Int   @id @default(autoincrement())
+  qty                 Int
+  unit_price          Int
+  item_id             Int   
+  sales_id            Int   
+  item                Item   @relation(fields: [item_id], references: [item_id], onDelete: Cascade, onUpdate: Cascade)
+  sales               Sale   @relation(fields: [sales_id], references: [sales_id], onDelete: Cascade, onUpdate: Cascade)
 }
 
 model Purchase {
@@ -39,6 +51,19 @@ model Purchase {
   purchase_type   String
   supplier        Supplier @relation(fields: [supplier_id], references: [supplier_id], onDelete: Cascade, onUpdate: Cascade)
   transactions    PurchaseTransaction[]
+}
+
+model Sale {
+  sales_id      Int   @id @default(autoincrement())
+  sales_date    DateTime @default(now())
+  customer_id   Int  
+  total_amount  Float
+  discount      Float
+  partial_payment Float?
+  total_revenue Float
+  sales_type    String
+  customer      Customer @relation(fields: [customer_id], references: [customer_id], onDelete:Cascade, onUpdate:Cascade)
+  transactions  SalesTransaction[]
 }
 
 model Supplier {
@@ -61,16 +86,6 @@ model Customer {
   sales             Sale[]
 }
 
-model Sale {
-  sales_id      Int   @id @default(autoincrement())
-  sales_date    DateTime @default(now())
-  customer_id   Int  
-  total_amount  Float
-  discount      Float
-  total_revenue Float
-  sales_type    String
-  customer      Customer @relation(fields: [customer_id], references: [customer_id])
-}
 
 model CashAccount {
   transaction_id   Int   @id @default(autoincrement())
