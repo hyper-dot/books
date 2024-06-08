@@ -64,10 +64,10 @@ export default function page() {
           <p className="pt-5 text-center">
             Already have an account ?{" "}
             <Link
-              className="text-blue-500 underline-offset-4 hover:underline"
+              className="text-blue-500 underline-offset-2 hover:underline"
               href="/login"
             >
-              Register
+              Login
             </Link>
           </p>
         </div>
