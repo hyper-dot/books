@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { MoveLeft, MoveRight } from "lucide-react";
 import Logo from "./Logo";
+import { ModeToggle } from "./ModeToggle";
 
 const menus = [
   { title: "Home", to: "/" },
@@ -20,8 +21,8 @@ export const Navigation = () => {
             <Link href={m.to}>{m.title}</Link>
           </li>
         ))}
-        {/* 
-        <ModeToggle /> */}
+
+        <ModeToggle />
       </ul>
       <div>
         {token ? (
