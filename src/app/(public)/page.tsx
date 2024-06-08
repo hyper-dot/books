@@ -32,8 +32,8 @@ export default function page() {
         </div>
       </div>
       <img
-        src="/mockup.png"
-        className="mx-auto rounded-3xl border shadow-xl lg:w-[90%]"
+        src="/hero.webp"
+        className="mx-auto rounded-2xl shadow-xl border lg:w-[80%]"
         alt=""
       />
     </div>
