@@ -3,15 +3,12 @@ import Link from "next/link";
 import {
   Gauge,
   Library,
-  LogOut,
   NotebookPen,
   Package,
   Settings,
   Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-import { ModeToggle } from "@/components/common/ModeToggle";
 
 import {
   AlertDialog,
@@ -49,8 +46,6 @@ const SideNavContent = ({
           <img src="/logo.svg" alt="" height={25} width={25} />
           <span className="text-2xl font-bold">LedgerLite</span>
         </Link>
-
-        <ModeToggle />
       </div>
 
       <ul className="space-y-3 pt-10">
@@ -76,30 +71,6 @@ const SideNavContent = ({
           </li>
         ))}
       </ul>
-
-      <AlertDialog>
-        <AlertDialogTrigger asChild>
-          <div className="flex flex-1 items-end pb-10">
-            <button className="flex items-center gap-4 text-red-600 dark:text-red-400">
-              <LogOut size={20} />
-              Log Out
-            </button>
-          </div>
-        </AlertDialogTrigger>
-        <AlertDialogContent>
-          <AlertDialogHeader>
-            <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
-            <AlertDialogDescription>
-              This action cannot be undone. This will permanently delete your
-              account and remove your data from our servers.
-            </AlertDialogDescription>
-          </AlertDialogHeader>
-          <AlertDialogFooter>
-            <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Log Out</AlertDialogAction>
-          </AlertDialogFooter>
-        </AlertDialogContent>
-      </AlertDialog>
     </>
   );
 };
