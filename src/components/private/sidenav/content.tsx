@@ -9,22 +9,15 @@ import {
   Users,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
-
-import {
-  AlertDialog,
-  AlertDialogAction,
-  AlertDialogCancel,
-  AlertDialogContent,
-  AlertDialogDescription,
-  AlertDialogFooter,
-  AlertDialogHeader,
-  AlertDialogTitle,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog";
 import { usePathname } from "next/navigation";
 
 const menus = [
-  { title: "Dashboard", to: "/dashboard", icon: <Gauge size={20} /> },
+  {
+    title: "Dashboard",
+    to: "/dashboard",
+    icon: <Gauge size={20} />,
+    color: "text-blue-500",
+  },
   { title: "Parties", to: "/parties", icon: <Users size={20} /> },
   { title: "Records", to: "/records", icon: <NotebookPen size={20} /> },
   { title: "Inventory", to: "/inventory", icon: <Package size={20} /> },
