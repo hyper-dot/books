@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/Provider/ThemeProvider";
+import { CustomToaster } from "@/components/common/Toaster";
 
 // const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({ subsets: ["latin"] });
@@ -18,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html className="scroll-smooth" lang="en">
+    <html suppressHydrationWarning className="scroll-smooth" lang="en">
       <body className={`${nunito.className}`}>
         <ThemeProvider
           attribute="class"
@@ -27,6 +28,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           {children}
+          <CustomToaster />
         </ThemeProvider>
       </body>
     </html>

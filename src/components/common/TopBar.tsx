@@ -12,6 +12,7 @@ import {
 import { ChevronDown } from "lucide-react";
 import { MobileSideNav } from "../private/sidenav/mobile";
 import { ModeToggle } from "./ModeToggle";
+import AddDropdown from "./AddDropdown";
 const TopBar = () => {
   return (
     <header className="sticky border-b h-14 bg-secondary px-2">
@@ -19,10 +20,11 @@ const TopBar = () => {
         <MobileSideNav />
 
         <div className="flex items-center gap-5">
+          <AddDropdown />
           <ModeToggle />
           <DropdownMenu>
             <DropdownMenuTrigger className="flex items-center gap-4 outline-none">
-              <p className="font-semibold leading-none text-left">
+              <p className="font-semibold text-sm leading-none text-left hidden md:block">
                 Roshan Paudel <br />{" "}
                 <span className="text-muted-foreground font-normal text-sm">
                   @roshan
@@ -35,7 +37,7 @@ const TopBar = () => {
                 width={80}
                 className="h-[40px] w-[40px] object-cover rounded-full"
               />
-              <ChevronDown size={20} />
+              <ChevronDown size={20} className="hidden md:block" />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               <DropdownMenuLabel>My Account</DropdownMenuLabel>

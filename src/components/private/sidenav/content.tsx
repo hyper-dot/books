@@ -4,10 +4,8 @@ import {
   Gauge,
   HandCoins,
   Library,
-  NotebookPen,
   Package,
   Settings,
-  Users,
   Wallet,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -79,9 +77,9 @@ const SideNavContent = ({
               }}
               href={m.to}
               className={cn(
-                "flex items-center gap-2 rounded-md px-1 py-2 transition-all duration-100 hover:bg-accent-foreground/5",
+                "flex items-center gap-2 px-2 rounded-r-sm py-2 transition-all border-l-4 border-transparent duration-100 hover:bg-accent-foreground/5",
                 pathName.startsWith(m.to)
-                  ? "bg-primary/10 hover:bg-primary/10"
+                  ? "bg-accent-foreground/5 text-blue-600 dark:text-blue-300 border-blue-500"
                   : "",
               )}
             >

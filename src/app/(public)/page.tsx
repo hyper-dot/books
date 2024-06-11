@@ -31,11 +31,7 @@ export default function page() {
           </Button>
         </div>
       </div>
-      <img
-        src="/hero.webp"
-        className="mx-auto rounded-2xl shadow-xl border lg:w-[80%]"
-        alt=""
-      />
+      <img src="/hero.svg" className="mx-auto lg:w-[80%]" alt="" />
     </div>
   );
 }
