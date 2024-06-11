@@ -2,11 +2,13 @@
 import Link from "next/link";
 import {
   Gauge,
+  HandCoins,
   Library,
   NotebookPen,
   Package,
   Settings,
   Users,
+  Wallet,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { usePathname } from "next/navigation";
@@ -18,16 +20,16 @@ const menus = [
     icon: <Gauge size={20} className="text-blue-400 dark:text-blue-300" />,
   },
   {
-    title: "Parties",
-    to: "/parties",
-    icon: <Users size={20} className="text-purple-400 dark:text-purple-300" />,
+    title: "Sales",
+    to: "/sales",
+    icon: (
+      <HandCoins size={20} className="text-purple-400 dark:text-purple-300" />
+    ),
   },
   {
-    title: "Records",
-    to: "/records",
-    icon: (
-      <NotebookPen size={20} className="text-orange-400 dark:text-orange-200" />
-    ),
+    title: "Expenses",
+    to: "/expenses",
+    icon: <Wallet size={20} className="text-orange-400 dark:text-orange-200" />,
   },
   {
     title: "Inventory",
