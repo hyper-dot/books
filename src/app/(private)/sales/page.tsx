@@ -7,7 +7,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { salesData } from "@/__mockdata__/sales";
+import { data } from "@/__mockdata__/sales";
 import { CircleEllipsis } from "lucide-react";
 import toast from "react-hot-toast";
 
@@ -19,22 +19,20 @@ const page = () => {
           <TableRow>
             <TableHead className="w-[100px]">SN</TableHead>
             <TableHead>Date</TableHead>
-            <TableHead>Product</TableHead>
-            <TableHead>Quantity</TableHead>
             <TableHead>Customer</TableHead>
             <TableHead>Payment Method</TableHead>
+            <TableHead>Amount</TableHead>
             <TableHead className="text-right">Action</TableHead>
           </TableRow>
         </TableHeader>
         <TableBody>
-          {salesData.map((d, idx) => (
+          {data.map((d, idx) => (
             <TableRow key={idx}>
               <TableCell className="font-medium">{idx + 1}</TableCell>
               <TableCell>{d.date}</TableCell>
-              <TableCell>{d.product}</TableCell>
-              <TableCell>{d.quantity}</TableCell>
-              <TableCell>{d.customerId}</TableCell>
+              <TableCell>{d.customer}</TableCell>
               <TableCell>{d.paymentMethod}</TableCell>
+              <TableCell>{d.amount}</TableCell>
               <TableCell className="flex justify-end">
                 <CircleEllipsis
                   size={18}
