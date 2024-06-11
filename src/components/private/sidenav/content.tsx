@@ -15,14 +15,39 @@ const menus = [
   {
     title: "Dashboard",
     to: "/dashboard",
-    icon: <Gauge size={20} />,
-    color: "text-blue-500",
+    icon: <Gauge size={20} className="text-blue-400 dark:text-blue-300" />,
   },
-  { title: "Parties", to: "/parties", icon: <Users size={20} /> },
-  { title: "Records", to: "/records", icon: <NotebookPen size={20} /> },
-  { title: "Inventory", to: "/inventory", icon: <Package size={20} /> },
-  { title: "Accounts", to: "/accounts", icon: <Library size={20} /> },
-  { title: "Settings", to: "/settings", icon: <Settings size={20} /> },
+  {
+    title: "Parties",
+    to: "/parties",
+    icon: <Users size={20} className="text-purple-400 dark:text-purple-300" />,
+  },
+  {
+    title: "Records",
+    to: "/records",
+    icon: (
+      <NotebookPen size={20} className="text-orange-400 dark:text-orange-200" />
+    ),
+  },
+  {
+    title: "Inventory",
+    to: "/inventory",
+    icon: (
+      <Package size={20} className="text-emerald-500 dark:text-emerald-200" />
+    ),
+  },
+  {
+    title: "Accounts",
+    to: "/accounts",
+    icon: <Library size={20} className="text-red-400 dark:text-red-300" />,
+  },
+  {
+    title: "Settings",
+    to: "/settings",
+    icon: (
+      <Settings size={20} className="text-fuchsia-500 dark:text-fuchsia-300" />
+    ),
+  },
 ];
 
 const SideNavContent = ({
@@ -52,9 +77,9 @@ const SideNavContent = ({
               }}
               href={m.to}
               className={cn(
-                "flex items-center gap-2 rounded-md px-1 py-2 transition-all duration-200 hover:bg-accent-foreground/5",
+                "flex items-center gap-2 rounded-md px-1 py-2 transition-all duration-100 hover:bg-accent-foreground/5",
                 pathName.startsWith(m.to)
-                  ? "bg-primary font-semibold text-primary-foreground hover:bg-primary hover:text-primary-foreground"
+                  ? "bg-primary/10 hover:bg-primary/10"
                   : "",
               )}
             >

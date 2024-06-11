@@ -7,12 +7,11 @@ import { usePathname } from "next/navigation";
 export const MobileSideNav = () => {
   const [open, setOpen] = useState(false);
   const pathName = usePathname().split("/").splice(1);
-  console.log(pathName);
   return (
     <>
       <ul className="capitalize hidden md:flex gap-1 font-semibold text-sm cursor-default">
         {pathName.map((k, idx) => (
-          <li className="after:contents">
+          <li key={idx} className="after:contents">
             {k} {idx !== pathName.length - 1 ? "/" : ""}
           </li>
         ))}

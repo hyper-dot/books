@@ -14,7 +14,7 @@ const statistics = [
     total: "66,000",
     growthRate: "4.5",
     icon: <BookmarkCheck />,
-    iconBg: "bg-green-500",
+    iconBg: "bg-green-300 dark:bg-green-600",
     background: "bg-green-100 dark:bg-secondary",
   },
   {
@@ -22,7 +22,7 @@ const statistics = [
     total: "25,000",
     growthRate: "2.5",
     icon: <ClipboardList />,
-    iconBg: "bg-orange-400",
+    iconBg: "bg-orange-300 dark:bg-orange-400",
     background: "bg-rose-100 dark:bg-secondary",
   },
 
@@ -31,22 +31,22 @@ const statistics = [
     total: "70,000",
     growthRate: "6.5",
     icon: <University />,
-    iconBg: "bg-[#bc7ffd]",
-    background: "bg-[#f3e7fe] dark:bg-secondary",
+    iconBg: "bg-purple-300 dark:bg-purple-400",
+    background: "bg-purple-100 dark:bg-secondary",
   },
   {
     title: "Cash",
     total: "70,000",
     growthRate: "6.5",
     icon: <Banknote />,
-    iconBg: "bg-blue-500",
+    iconBg: "bg-blue-300 dark:bg-blue-500",
     background: "bg-blue-100 dark:bg-secondary",
   },
 ];
 
 const StatCards = () => {
   return (
-    <div className="mt-4 flex max-w-[100vw] px-2 items-center  gap-8 overflow-auto">
+    <div className="mt-4 flex max-w-[100vw] px-4 items-center gap-8 overflow-auto">
       {statistics.map((stat, idx) => {
         return (
           <div
