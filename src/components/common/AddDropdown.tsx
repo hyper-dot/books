@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { CircleEllipsis, CirclePlus, HandCoins, Wallet } from "lucide-react";
 import { Button } from "../ui/button";
+import Link from "next/link";
 
 const AddDropdown = () => {
   return (
@@ -34,7 +35,9 @@ const AddDropdown = () => {
             <DropdownMenuSubContent>
               <DropdownMenuItem>Add Sales</DropdownMenuItem>
               <DropdownMenuItem>Add Product</DropdownMenuItem>
-              <DropdownMenuItem>Add Customer</DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/sales/new/customer">Add Customer</Link>
+              </DropdownMenuItem>
             </DropdownMenuSubContent>
           </DropdownMenuPortal>
 

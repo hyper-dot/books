@@ -31,7 +31,7 @@ const layout = ({ children }: { children: ReactNode }) => {
           </li>
         ))}
       </ul>
-      {children}
+      <div className="pb-4 px-4 max-w-[100vw] overflow-auto">{children}</div>
     </div>
   );
 };
