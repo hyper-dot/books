@@ -13,7 +13,7 @@ import toast from "react-hot-toast";
 
 const page = () => {
   return (
-    <div className="py-4">
+    <div className="py-4 max-w-[100vw] overflow-auto">
       <Table>
         <TableHeader>
           <TableRow>
@@ -33,7 +33,7 @@ const page = () => {
               <TableCell>{d.customer}</TableCell>
               <TableCell>{d.paymentMethod}</TableCell>
               <TableCell>{d.amount}</TableCell>
-              <TableCell className="flex justify-end">
+              <TableCell className="flex items-center justify-end">
                 <CircleEllipsis
                   size={18}
                   onClick={() => {
