@@ -34,7 +34,9 @@ const AddDropdown = () => {
           <DropdownMenuPortal>
             <DropdownMenuSubContent>
               <DropdownMenuItem>Add Sales</DropdownMenuItem>
-              <DropdownMenuItem>Add Product</DropdownMenuItem>
+              <DropdownMenuItem asChild>
+                <Link href="/sales/new/product">Add Product</Link>
+              </DropdownMenuItem>
               <DropdownMenuItem asChild>
                 <Link href="/sales/new/customer">Add Customer</Link>
               </DropdownMenuItem>

@@ -8,13 +8,6 @@ import { Button } from "@/components/ui/button";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { TCustomerSchema, customerSchema } from "@/schema/customer.schema";
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
-import { cn } from "@/lib/utils";
 import FormInput from "@/components/form/FormInput";
 
 const page = () => {
@@ -62,13 +55,11 @@ const page = () => {
             </div>
             <div>
               <Label>Email</Label>
-              <TooltipProvider>
-                <FormInput
-                  placeholder="Enter Customer email"
-                  register={register("email")}
-                  errors={errors.email}
-                />
-              </TooltipProvider>
+              <FormInput
+                placeholder="Enter Customer email"
+                register={register("email")}
+                errors={errors.email}
+              />
             </div>
           </div>
           <div>

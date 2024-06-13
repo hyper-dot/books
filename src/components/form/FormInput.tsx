@@ -1,4 +1,4 @@
-import React from "react";
+import React, { InputHTMLAttributes } from "react";
 import {
   Tooltip,
   TooltipContent,
@@ -9,10 +9,12 @@ import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
 
 const FormInput = ({
+  type,
   errors,
   register,
   placeholder,
 }: {
+  type?: "number" | "text";
   errors: any;
   register: any;
   placeholder?: string;
@@ -22,6 +24,7 @@ const FormInput = ({
       <Tooltip open={!!errors}>
         <TooltipTrigger asChild>
           <Input
+            type={type ? type : "text"}
             className={cn(!!errors ? "border-destructive" : "")}
             {...register}
             placeholder={placeholder}
