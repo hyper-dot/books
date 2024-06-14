@@ -3,6 +3,7 @@ import { Nunito } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/Provider/ThemeProvider";
 import { CustomToaster } from "@/components/common/Toaster";
+import QueryProvider from "@/providers/QueryProvider";
 
 // const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({ subsets: ["latin"] });
@@ -27,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <QueryProvider>{children}</QueryProvider>
           <CustomToaster />
         </ThemeProvider>
       </body>

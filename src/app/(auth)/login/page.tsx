@@ -15,10 +15,6 @@ export default function page() {
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-8 px-4">
-      <div className="fixed left-4 top-4">
-        <Logo />
-      </div>
-
       <div className="w-full max-w-sm">
         <BackBtn />
         <H2>Welcome Back,</H2>
