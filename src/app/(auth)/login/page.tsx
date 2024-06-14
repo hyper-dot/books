@@ -3,15 +3,25 @@ import Link from "next/link";
 import { H2 } from "@/components/ui/typography";
 import { BackBtn } from "@/components/common/BackBtn";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import Logo from "@/components/common/Logo";
 
-import { FormErr } from "@/components/form/FormErr";
-import FormSubmitBtn from "@/components/form/FormSubmitBtn";
+import FormInput from "@/components/form/FormInput";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { TLoginSchema, loginSchema } from "@/schema/auth.schema";
+import { useLoginMutation } from "@/hooks/mutations/auth.mutation";
 
 export default function page() {
-  const onSubmit = async () => {};
+  const {
+    handleSubmit,
+    register,
+    formState: { errors },
+  } = useForm<TLoginSchema>({ resolver: zodResolver(loginSchema) });
+  const { mutateAsync, isPending } = useLoginMutation();
+
+  const onSubmit = async (payload: TLoginSchema) => {
+    mutateAsync(payload);
+  };
 
   return (
     <div className="flex h-full w-full flex-col items-center justify-center gap-8 px-4">
@@ -19,16 +29,25 @@ export default function page() {
         <BackBtn />
         <H2>Welcome Back,</H2>
       </div>
-      <form className="w-full max-w-sm space-y-4">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="w-full max-w-sm space-y-4"
+      >
         <div>
           <Label>Email</Label>
-          <Input type="email" placeholder="Enter your email here" />
-          <FormErr></FormErr>
+          <FormInput
+            register={register("email")}
+            errors={errors.email}
+            placeholder="Enter your email here"
+          />
         </div>
         <div>
           <Label>Password</Label>
-          <Input type="password" placeholder="Enter your email here" />
-          <FormErr></FormErr>
+          <FormInput
+            register={register("password")}
+            errors={errors.password}
+            placeholder="Enter your password"
+          />
         </div>
         <div>
           <Link href="/forgot" className="hover:text-muted-foreground">
@@ -37,9 +56,9 @@ export default function page() {
         </div>
 
         <div className="space-y-2">
-          <FormSubmitBtn className="w-full" isSubmitting={false}>
+          <Button className="w-full" disabled={isPending}>
             Login
-          </FormSubmitBtn>
+          </Button>
 
           <p className="text-center">Or</p>
 

@@ -7,7 +7,7 @@ import { redirect } from "next/navigation";
 import { r } from "@/config/request";
 import { handleUnauthorized } from "@/lib/auth.lib";
 
-const secretKey = process.env.SESSION_SECRET;
+const secretKey = process.env.JWT_SECRET;
 const key = new TextEncoder().encode(secretKey);
 
 export async function encrypt(payload: any) {
@@ -51,14 +51,12 @@ export async function updateSession({
 }) {
   try {
     const {
-      accessToken: token,
       user: { refreshToken },
     } = session;
 
     // GET new session from the backend
     const newSession = await r.post({
-      endpoint: "/auth/refreshtoken",
-      token,
+      endpoint: "/auth/refresh",
       payload: { refreshToken },
     });
 
@@ -77,7 +75,7 @@ export async function updateSession({
     // RETURN
     return res;
   } catch (err) {
-    console.log("Error while refreshing token :", err);
+    console.log(err);
     return handleUnauthorized(request);
   }
 }
@@ -91,7 +89,7 @@ type Response = {
 export const login = async (payload: any): Promise<Response> => {
   try {
     const res = await fetch(
-      `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/signin`,
+      `${process.env.NEXT_PUBLIC_BACKEND_URL}/auth/login`,
       {
         method: "POST",
         body: JSON.stringify(payload),
@@ -113,6 +111,7 @@ export const login = async (payload: any): Promise<Response> => {
       }
     } else {
       const data = await res.json();
+      console.log(data);
       const session = await encrypt(data);
       cookies().set("session", session, {
         httpOnly: true,

@@ -10,7 +10,7 @@ export function isPrivateRoute(pathname: string): boolean {
 }
 
 export const handleUnauthorized = (req: NextRequest) => {
-  const res = NextResponse.redirect(req.nextUrl.origin + "/signin");
+  const res = NextResponse.redirect(req.nextUrl.origin + "/login");
   res.cookies.delete("session");
   return res;
 };

@@ -17,4 +17,10 @@ export const registerSchema = z
     }
   });
 
+export const loginSchema = z.object({
+  email: z.string().email({ message: "Please enter a valid email." }),
+  password: z.string(),
+});
+
+export type TLoginSchema = z.infer<typeof loginSchema>;
 export type TRegisterSchema = z.infer<typeof registerSchema>;
