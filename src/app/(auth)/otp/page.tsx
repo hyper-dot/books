@@ -30,7 +30,7 @@ const page = () => {
 
   useEffect(() => {
     const intervalId = setInterval(() => {
-      setTimer((prev) => (prev > 0 ? prev - 20 : 0));
+      setTimer((prev) => (prev > 0 ? prev - 1 : 0));
     }, 1000);
     return () => clearInterval(intervalId);
   }, []);
@@ -42,7 +42,7 @@ const page = () => {
       </div>
       <form
         onSubmit={handleSubmit}
-        className="border bg-white p-8 space-y-5 text-center rounded-3xl w-fit"
+        className="border p-8 space-y-5 text-center rounded-3xl w-fit"
       >
         <h3 className="text-2xl font-semibold">Verify OTP</h3>
         <p className="text-sm text-muted-foreground">
@@ -63,7 +63,7 @@ const page = () => {
             disabled={!!timer}
             className={cn(
               "font-bold cursor-not-allowed",
-              !timer ? "text-black cursor-pointer" : "",
+              !timer ? "text-primary cursor-pointer" : "",
             )}
           >
             Resend
