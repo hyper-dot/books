@@ -48,7 +48,7 @@ export const useLoginMutation = () => {
           }
         } else {
           toast.success("You have been loggedin successfully.");
-          // router.push("/dashboard");
+          router.push("/dashboard");
         }
       } catch (err) {
         toast("Something went wrong. Please try again.");
