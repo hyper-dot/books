@@ -8,7 +8,6 @@ export async function middleware(request: NextRequest) {
 
   if (isPrivateRoute(pathname)) {
     const session = await getSession();
-    console.log("SESSION", session);
     if (!session) {
       return handleUnauthorized(request);
     }

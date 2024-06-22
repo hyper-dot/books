@@ -60,8 +60,6 @@ export async function updateSession({
       payload: { refreshToken },
     });
 
-    console.log("NEW SESSION", newSession);
-
     // PREPARE CONSTANTS
     const expires = new Date(Date.now() + 30 * 60 * 60 * 1000);
     const res = NextResponse.next();

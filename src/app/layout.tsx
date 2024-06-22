@@ -21,7 +21,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
   const session = await getSession();
-  console.log("SESSION FROM LAYOUT", session);
   return (
     <html suppressHydrationWarning className="scroll-smooth" lang="en">
       <body className={`${nunito.className}`}>
