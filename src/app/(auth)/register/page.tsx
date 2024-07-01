@@ -75,6 +75,7 @@ export default function page() {
         <div>
           <Label>Password</Label>
           <FormInput
+            type="password"
             placeholder="Enter a new password"
             register={register("password")}
             errors={errors.password}
@@ -83,6 +84,7 @@ export default function page() {
         <div>
           <Label>Confirm Password</Label>
           <FormInput
+            type="password"
             placeholder="Re-enter your password"
             register={register("confirm_password")}
             errors={errors.confirm_password}

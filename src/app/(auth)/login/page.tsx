@@ -44,6 +44,7 @@ export default function page() {
         <div>
           <Label>Password</Label>
           <FormInput
+            type="password"
             register={register("password")}
             errors={errors.password}
             placeholder="Enter your password"

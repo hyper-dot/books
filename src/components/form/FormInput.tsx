@@ -14,7 +14,7 @@ const FormInput = ({
   register,
   placeholder,
 }: {
-  type?: "number" | "text";
+  type?: "number" | "text" | "password";
   errors: any;
   register: any;
   placeholder?: string;
